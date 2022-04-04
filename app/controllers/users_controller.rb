@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-    def index
+  def index; end
 
-    end
-
-    def show
-        @id = params[:id]
-    end
+  def show
+    @id = params[:id]
+  end
 end
