@@ -37,6 +37,9 @@ rails r
 ```
 http://localhost:3000
 ```
+## Testing
+* To install rspec: `gem install rspec`
+* To run all the tests: `rspec ./spec`
 
 ## Prerequisites
 * Make sure Ruby and PostgreSQL are installed in your system.
