@@ -73,5 +73,5 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'rails-controller-testing'
 gem 'ffi', '~> 1.15', '>= 1.15.5'
+gem 'rails-controller-testing'

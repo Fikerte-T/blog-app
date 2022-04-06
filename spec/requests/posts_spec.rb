@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
-  describe "GET /index" do
-    before(:example) {get user_posts_path(754)}
-      it 'should have response status ok' do
+RSpec.describe 'Posts', type: :request do
+  describe 'GET /index' do
+    before(:example) { get user_posts_path(754) }
+    it 'should have response status ok' do
       expect(response).to have_http_status(:ok)
     end
     it 'renders index template' do
@@ -13,8 +13,8 @@ RSpec.describe "Posts", type: :request do
       expect(response.body).to include('All posts')
     end
   end
-  describe "GET /show" do
-    before(:example) {get user_post_path(754,1)}
+  describe 'GET /show' do
+    before(:example) { get user_post_path(754, 1) }
     it 'should have response status ok' do
       expect(response).to have_http_status(:ok)
     end
@@ -26,5 +26,4 @@ RSpec.describe "Posts", type: :request do
       expect(response.body).to include('Post: ')
     end
   end
-
 end
