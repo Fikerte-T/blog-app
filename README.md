@@ -2,6 +2,9 @@
 
 This is a blog website built with Ruby on Rails. It shows the list of posts and empower readers to interact with them by adding comments and liking posts.
 
+## Entity Relationship Diagram(ERD)
+![ERD](/ERD.png)
+
 ## Technologies Used
 
 * Framework: Ruby on Rails(RoR)
