@@ -1,8 +1,7 @@
+require_relative '20220407202646_create_join_table_user_post'
 class CreateLikes < ActiveRecord::Migration[7.0]
   def change
-    create_table :likes do |t|
-
-      t.timestamps
-    end
+    revert CreateJoinTableUserPost
+    create_table :likes, &:timestamps
   end
 end
