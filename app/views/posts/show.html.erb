@@ -1,3 +1,13 @@
-<h1>Post by user</h1>
-<p><%= "User: " %><span><%= @user_id %><span></p>
-<p><%= "Post: " %><span><%= @id %><span></p>
+<div>
+    <h3><%='Post '%><%=@post.id%><%=' by '%><%=@post.author.name%></h3>
+    <div>
+        <b><%='Comments: ' %><%=@post.comments_counter%>
+        <%='Likes: ' %><%=@post.likes_counter%>
+    </b>
+    <p><%=@post.text%></p>
+    <%@post.comments.each do |comment|%>
+        <%=render partial: "comments", locals: {comment: comment} %>
+    <%end%>
+</div>
+</div>
+

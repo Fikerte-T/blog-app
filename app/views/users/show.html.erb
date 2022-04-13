@@ -1,2 +1,14 @@
-<h1>This is a single user</h1>
-<p><%= "User: "%><span><%= @id %></span></p>
+<div class='post'>
+    <%= render partial: "user", locals: { user: @user } %>
+    <div class = 'bio'>
+        <h3>Bio</h3>
+        <p><%= @user.bio%></p>
+    </div>
+    <div class = 'post_list'>
+        <% @user.recent_posts.each do |post, index|%>
+            <%= render partial: "posts/post", locals: {user: @user, post: post } %>
+        <%end%>
+        <a href="/users/<%= @user.id %>/posts">See all posts</a>
+    </div>
+</div>
+
