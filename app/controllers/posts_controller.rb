@@ -8,8 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def new
-  end
+  def new; end
 
   def create
     # render plain: params[:post].inspect
@@ -17,11 +16,11 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if @post.save
-          flash[:success] = "Post created successfully"
+          flash[:success] = 'Post created successfully'
           redirect_to new_user_post_path
         else
-          flash.now[:error] = "Error: Post could not be saved"
-          render :new, locals: {post: @post}
+          flash.now[:error] = 'Error: Post could not be saved'
+          render :new, locals: { post: @post }
         end
       end
     end
