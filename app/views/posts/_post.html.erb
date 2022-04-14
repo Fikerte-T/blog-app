@@ -1,8 +1,12 @@
-<h3><a href='/users/<%= user.id %>/posts/<%= post.id %>'><%='Post '%><span><%=post.id%></span></a></h3>
-<p><%=post.text%></p>
-<div>
-    <b><%='Comments: ' %><%=post.comments_counter%>
-    <%='Likes: ' %><%=post.likes_counter%>
-    </b>
+<div class='border'>
+    <div>
+        <h3><a href='/users/<%= user.id %>/posts/<%= post.id %>'><%='Post '%><span><%=post.id%></span></a></h3>
+        <p><%=post.text%></p>
+    </div>
+    <div>
+        <b><%='Comments: ' %><%=post.comments_counter%>
+        <%='Likes: ' %><%=post.likes_counter%>
+        </b>
+    </div>
 </div>
 

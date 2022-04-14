@@ -1,19 +1,24 @@
 <div>
-    <h3><%='Post '%><%=@post.id%><%=' by '%><%=@post.author.name%></h3>
-    <div>
+    <% flash.each do |type, msg| %>
+        <div>
+        <%= msg %>
+        </div>
+    <% end %>
+    <div class = 'border'>
+        <h3><%='Post '%><%=@post.id%><%=' by '%><%=@post.author.name%></h3>
         <b><%='Comments: ' %><%=@post.comments_counter%>
-        <%='Likes: ' %><%=@post.likes_counter%>
-    </b>
-    <p><%=@post.text%></p>
-   
-    <div>
+            <%='Likes: ' %><%=@post.likes_counter%>
+        </b>
+        <p><%=@post.text%></p>
+        <%=render partial: "likes/create", locals: {post: @post} %>
+    </div>
+    <div class = 'border'>
         <%@post.comments.each do |comment|%>
             <%=render partial: "comments", locals: {comment: comment} %>
         <%end%>
     </div>
-    <div>
-        <%=render partial: "comments/create", locals: {post: @post} %>
-    </div>
-</div>
+
+    <%=render partial: "comments/create", locals: {post: @post} %>
+
 </div>
 

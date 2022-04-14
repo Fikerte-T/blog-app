@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = "Post created successfully"
-          redirect_to user_posts_path
+          redirect_to new_user_post_path
         else
           flash.now[:error] = "Error: Post could not be saved"
           render :new, locals: {post: @post}
