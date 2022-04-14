@@ -9,7 +9,15 @@ Rails.application.routes.draw do
   # get 'users/:user_id/posts/' => 'posts#index'
   # get 'users/:user_id/posts/:id' => 'posts#show'
   # Use %i or %I for an array of symbols
-  resources :users, only: %i[index show] do
-    resources :posts, only: %i[index show]
+  # only: %i[index show]
+  resources :users do
+    resources :posts do
+      resources :comments, only: %i[create]
+      resources :likes, only: %i[create]
+    end
   end
+  # resources :posts do
+  #   resources :comments, only: %i[create new]
+  #   resources :likes, only: %i[create new]
+  # end
 end

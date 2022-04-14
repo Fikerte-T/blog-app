@@ -1,10 +1,13 @@
 <div>
+    <%= link_to 'New Post', new_user_post_path %>
     <%= render partial: "users/user", locals: { user: @user } %>
     <% @user.posts.each do |post|%>
         <%= render partial: "post", locals: {user: @user, post: post } %>
+        <div class='border'>
         <%post.recent_comments.each do |comment|%>
             <%=render partial: "comments", locals: {comment: comment} %>
         <%end%>
+        </div>
     <%end%>
     <a href="/users/<%= @user.id %>/posts/">Pagination</a>
 </div>
