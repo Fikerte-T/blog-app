@@ -1,0 +1,8 @@
+<div>
+    <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/comments", method: :post, local: true, scope: :comment do |f| %>
+        
+            <%= f.text_field :text %><br>
+
+            <%= f.submit 'Add Comment' %>
+    <%end%>
+</div>

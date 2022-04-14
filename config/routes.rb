@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   # Use %i or %I for an array of symbols
   # only: %i[index show]
   resources :users  do
-    resources :posts
+    resources :posts do 
+      resources :comments, only: %i[create]
+      resources :likes, only: %i[create]
+    end
   end
-  resources :posts do
-    resources :comments, only: %i[create]
-    resources :likes, only: %i[create]
-  end
+  # resources :posts do
+  #   resources :comments, only: %i[create new]
+  #   resources :likes, only: %i[create new]
+  # end
 end

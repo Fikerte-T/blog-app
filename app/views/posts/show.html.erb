@@ -1,14 +1,19 @@
 <div>
-    
     <h3><%='Post '%><%=@post.id%><%=' by '%><%=@post.author.name%></h3>
     <div>
         <b><%='Comments: ' %><%=@post.comments_counter%>
         <%='Likes: ' %><%=@post.likes_counter%>
     </b>
     <p><%=@post.text%></p>
-    <%@post.comments.each do |comment|%>
-        <%=render partial: "comments", locals: {comment: comment} %>
-    <%end%>
+   
+    <div>
+        <%@post.comments.each do |comment|%>
+            <%=render partial: "comments", locals: {comment: comment} %>
+        <%end%>
+    </div>
+    <div>
+        <%=render partial: "comments/create", locals: {post: @post} %>
+    </div>
 </div>
 </div>
 
