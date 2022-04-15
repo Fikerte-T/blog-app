@@ -32,9 +32,15 @@ cd blog-app
 ```
 bundle install
 ```
-* Run the following command to start the server
+* Run the following commands to run the app
 ```
-rails r
+rails db:create
+```
+```
+rails db:migrate
+```
+```
+rails s
 ```
 * In your browser, go to
 ```
