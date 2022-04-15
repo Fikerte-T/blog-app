@@ -1,17 +1,16 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    # @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.includes(:comments).find(params[:id])
   end
 
   def new; end
 
   def create
-    # render plain: params[:post].inspect
     @post = current_user.posts.new(params.require(:post).permit(:title, :text))
     respond_to do |format|
       format.html do
