@@ -73,6 +73,6 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'devise'
 gem 'ffi', '~> 1.15', '>= 1.15.5'
 gem 'rails-controller-testing'
-gem 'devise'
