@@ -46,11 +46,12 @@ RSpec.describe 'User show page features' do
             expect(page).to have_content('my fourth post')
         end
 
-        # it 'it shows comments on post' do
-        #     expect(page).to have_content('comment1')
-        #     expect(page).to have_content('comment2')
-        #     expect(page).to have_content('comment3')          
-        # end
+        it 'it shows comments on post' do
+            click_link('See all posts')
+            expect(page).to have_content('comment1')
+            expect(page).to have_content('comment2')
+            expect(page).to have_content('comment3')          
+        end
         it 'shows  the number of omments a post has' do
             expect(@post2.comments_counter).to eq(3)
         end
