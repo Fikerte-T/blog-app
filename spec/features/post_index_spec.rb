@@ -15,8 +15,8 @@ RSpec.describe 'User show page features' do
         @post4 = Post.create(author: @user1, title: 'post4', text: 'my fourth post')
 
         @comment1 = Comment.create(author: @user1, post: @post2, text: 'comment1')
-        @comment1 = Comment.create(author: @user1, post: @post2, text: 'comment2')
-        @comment1 = Comment.create(author: @user1, post: @post2, text: 'comment3')
+        @comment2 = Comment.create(author: @user1, post: @post2, text: 'comment2')
+        @comment3 = Comment.create(author: @user1, post: @post2, text: 'comment3')
 
         visit user_path @user1.id
        
