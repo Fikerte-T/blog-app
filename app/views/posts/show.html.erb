@@ -5,7 +5,7 @@
         </div>
     <% end %>
     <div class = 'border'>
-        <h3><%='Post '%><%=@post.id%><%=' by '%><%=@post.author.name%></h3>
+        <h3><%=@post.title%><%=' by '%><%=@post.author.name%></h3>
         <b><%='Comments: ' %><%=@post.comments_counter%>
             <%='Likes: ' %><%=@post.likes_counter%>
         </b>
