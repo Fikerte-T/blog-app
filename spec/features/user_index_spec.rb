@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe 'Login features' do
+RSpec.describe 'user index features' do
     before(:each) do
-       @user1 = User.create!(id: 1, name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', email: 'tom@example.com',
+       @user1 = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', email: 'tom@example.com',
         password: '123456', confirmed_at: Time.now, posts_counter: 0)
-        @user2 = User.create!(id: 2, name: 'Alice', photo: 'https://unsplash.com/photos/igX2deuD9lc', bio: 'Teacher from Poland.', email: 'alice@example.com',
+        @user2 = User.create!(name: 'Alice', photo: 'https://unsplash.com/photos/igX2deuD9lc', bio: 'Teacher from Poland.', email: 'alice@example.com',
         password: '123456', confirmed_at: Time.now, posts_counter: 0)
-        @user3 = User.create!(id: 3, name: 'John', photo: 'https://unsplash.com/photos/BXCZi9smw78', bio: 'Teacher from Mexico.', email: 'john@example.com',
+        @user3 = User.create!(name: 'John', photo: 'https://unsplash.com/photos/BXCZi9smw78', bio: 'Teacher from Mexico.', email: 'john@example.com',
         password: '123456', confirmed_at: Time.now, posts_counter: 0)
 
         visit('/users/sign_in')
@@ -33,15 +33,15 @@ RSpec.describe 'Login features' do
         
         it 'it redirectos to that user\'s show page when user is clicked ' do
             click_link('Tom')
-            expect(current_path).to eq('/users/1')
+            expect(current_path).to eq(user_path @user1.id)
         end
         it 'it redirectos to that user\'s show page when user is clicked ' do
             click_link('Alice')
-            expect(current_path).to eq('/users/2')
+            expect(current_path).to eq(user_path @user2.id)
         end
         it 'it redirectos to that user\'s show page when user is clicked ' do
             click_link('John')
-            expect(current_path).to eq('/users/3')
+            expect(current_path).to eq(user_path @user3.id)
         end
     end
   
