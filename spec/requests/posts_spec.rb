@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET /index' do
-    before(:example) { get user_posts_path(754) }
+    before(:each) do
+      @user = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', email: 'tom@example.com',
+      password: '123456', confirmed_at: Time.now, posts_counter: 0)
+      get user_posts_path @user.id
+    end
     it 'should have response status ok' do
       expect(response).to have_http_status(:ok)
     end
@@ -10,11 +14,17 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:index)
     end
     it 'response body includes correct placeholder text' do
-      expect(response.body).to include('All posts')
+      expect(response.body).to include('Pagination')
     end
   end
   describe 'GET /show' do
-    before(:example) { get user_post_path(754, 1) }
+    before (:each) do
+      @user = User.create!(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', email: 'tom@example.com',
+      password: '123456', confirmed_at: Time.now, posts_counter: 0)
+      @post = Post.create(author_id: @user.id, title: 'post1', text: 'my first post')
+      get user_post_path @user.id, @post.id
+    end
+
     it 'should have response status ok' do
       expect(response).to have_http_status(:ok)
     end
@@ -22,8 +32,8 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to render_template(:show)
     end
     it 'response body includes correct placeholder text' do
-      expect(response.body).to include('User: ')
-      expect(response.body).to include('Post: ')
+      expect(response.body).to include('post1 by Tom')
+      
     end
   end
 end
